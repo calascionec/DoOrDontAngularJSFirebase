@@ -3,3 +3,8 @@ span {
   color: lightgray;
   font-style: italic;
 }
+
+::selection {
+  color: tomato;
+  background-color: Chartreuse;
+}
