@@ -2,8 +2,12 @@ DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, Ad
   $scope.question = UtilitiesFactory.findById(AdviceFactory.questions, $stateParams.questionId)
 
   $scope.addAnswer = function() {
-    $scope.question.answers.push($scope.answer);
-    $scope.answer = null;
+    if($scope.question.answers.indexOf($scope.answer) === -1) {
+      $scope.question.answers.push($scope.answer);
+      $scope.answer = null;
+    } else {
+      alert("answer already given");
+    }
 
   };
 

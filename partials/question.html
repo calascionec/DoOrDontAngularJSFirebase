@@ -1,0 +1,13 @@
+<div>
+  <h2>{{question.text}}</h2>
+  <h3>Answers</h3>
+  <ul>
+    <li ng-repeat='item in question.answers '>{{item}}</li>
+  </ul>
+  <form ng-submit='addAnswer()' role='form'>
+    <div class='form-group'>
+      <input type="text" ng-model='answer' class='form-control' placeholder='Enter Your Answer Here'>
+    </div>
+    <button type='submit' class='btn btn-danger'>Answer!</button>
+  </form>
+</div>
