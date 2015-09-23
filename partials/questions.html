@@ -11,7 +11,7 @@
 <div class="col-md-12" ng-show="questions.length">
   <h2>Asked Questions:</h2>
   <ul>
-    <li ng-repeat='item in questions'><a ui-sref='question({ id: item.id})'>{{item.text}}</a></li>
+    <li ng-repeat='item in questions'><a ui-sref='question({ questionId: item.id})'>{{item.text}}</a></li>
   </ul>
 </div>
 
