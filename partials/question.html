@@ -2,7 +2,7 @@
   <h2>{{question.text}}</h2>
   <h3>Answers</h3>
   <ul>
-    <li ng-repeat='item in question.answers '>{{item}}</li>
+    <li ng-repeat='item in question.answers'>{{item}}</li>
   </ul>
   <form ng-submit='addAnswer()' role='form'>
     <div class='form-group'>
@@ -10,4 +10,5 @@
     </div>
     <button type='submit' class='btn btn-danger'>Answer!</button>
   </form>
+  <a ui-sref="questions"><button class='btn btn-success'>Go back</button></a>
 </div>
