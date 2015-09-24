@@ -1,12 +1,14 @@
-DoOrDont.factory('AdviceFactory', function AdviceFactory(){
+DoOrDont.factory('AdviceFactory', function AdviceFactory($firebaseObject){
   var factory = {};
-  factory.questions = [];
+  var ref = new Firebase("https://doordont.firebaseio.com/questions");
   factory.addQuestion = function () {
-    factory.questions.push({ text: factory.question,
-                             id: factory.questions.length + 1,
-                             answers: []});
+    ref.push({ text: factory.question,
+                     answers: []});
     factory.question = null;
   };
+
+
+
 
 
   return factory;

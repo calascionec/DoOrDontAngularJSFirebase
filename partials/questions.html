@@ -1,20 +1,23 @@
 <div class='col-md-12'>
   <h3>Ask your question!</h3>
-  <form ng-submit='AdviceFactory.addQuestion()'  role='form'>
+  <form ng-submit='AdviceFactory.addQuestion(); AdviceFactory.testAdd()'  role='form'>
     <div class='form-group'>
-      <input type="text" ng-model="AdviceFactory.question" class='form-control' placeholder='Enter Your Question Here'>
+      <input type="text" ng-model="AdviceFactory.question;" class='form-control' placeholder='Enter Your Question Here'>
     </div>
     <button type="submit" class="btn btn-primary">Ask!</button>
   </form>
 </div>
 
-<div class="col-md-12" ng-show="questions.length">
+<div class="col-md-12" ng-show="newQuestions">
   <h3>Asked Questions:</h3>
   <form class="form-inline" role="form">
     <input ng-model="query" type="text" class="form-control" placeholder="search">
   </form>
-  <ul>
+  <!-- <ul>
     <li ng-repeat='item in filtered = (questions | filter:query)'><a ui-sref='question({ questionId: item.id})'>{{item.text}}</a><span ng-show="item.answers.length">({{item.answers.length}}) answers</span></li>
+  </ul> -->
+  <ul>
+    <li ng-repeat='item in newQuestions'><a ui-sref='question({ questionId: item.id})'>{{item.text}} </a><span ng-show="item.answers.length">({{item.answers.length}}) answers</span></li>
   </ul>
 </div>
 

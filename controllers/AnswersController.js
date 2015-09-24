@@ -1,4 +1,5 @@
-DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, AdviceFactory, UtilitiesFactory){
+DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, AdviceFactory, UtilitiesFactory, $firebaseObject){
+var ref = new Firebase("https://doordont.firebaseio.com/questions");
   $scope.question = UtilitiesFactory.findById(AdviceFactory.questions, $stateParams.questionId)
   $scope.formShow = false;
   $scope.rating;

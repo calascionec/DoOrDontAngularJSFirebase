@@ -1,4 +1,4 @@
-var DoOrDont = angular.module('DoOrDont', ['ui.router']);
+var DoOrDont = angular.module('DoOrDont', ['ui.router', 'firebase']);
 
 DoOrDont.config(function($stateProvider, $urlRouterProvider){
   $stateProvider.state('home', {
