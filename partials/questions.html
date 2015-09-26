@@ -17,7 +17,7 @@
     <li ng-repeat='item in filtered = (questions | filter:query)'><a ui-sref='question({ questionId: item.id})'>{{item.text}}</a><span ng-show="item.answers.length">({{item.answers.length}}) answers</span></li>
   </ul> -->
   <ul>
-    <li ng-repeat='item in questions'><a ui-sref='question({ questionId: item.$id})'>{{item.text}} </a><span ng-show="item.answers.length">({{item.answers.length}}) answers</span></li>
+    <li ng-repeat='item in questions'><a ui-sref='question({ questionId: item.$id})'>{{item.text}} {{item.$id}} </a><span ng-show="item.answers.length">({{item.answers.length}}) answers</span></li>
   </ul>
 </div>
 

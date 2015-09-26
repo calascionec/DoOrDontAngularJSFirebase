@@ -2,10 +2,10 @@
   <h2>{{question.text}}</h2>
   <h3>Answers</h3>
   <ul>
-    <li ng-repeat='item in question.answers'>{{item.text}} <strong ng-show='item.rating'>{{item.rating}}</strong>
+    <li ng-repeat='(key, item) in question.answers'>{{item.text}}<strong ng-show='item.rating'> {{item.rating}}</strong>
       <input ng-model='rating' ng-show='formShow' type="number" min='1' max='5' value="1">
-      <button class='btn btn-xs' ng-click="submitRating(item.id, rating)" ng-show='formShow'>Submit</button>
-    <button class='btn btn-xs' ng-click='addRating(item.id)' ng-show='!item.approved'>Approve</button></li>
+      <button class='btn btn-xs' ng-click="submitRating(key, rating)" ng-show='formShow'>Submit</button>
+    <button class='btn btn-xs' ng-click='addRating(key)' ng-show='!item.approved'>Approve</button></li>
   </ul>
   <form ng-submit='addAnswer()' role='form'>
     <div class='form-group'>
