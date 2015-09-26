@@ -1,9 +1,7 @@
-DoOrDont.controller('QuestionsCtrl', function QuestionsCtrl($scope, AdviceFactory, $firebaseObject) {
+DoOrDont.controller('QuestionsCtrl', function QuestionsCtrl($scope, AdviceFactory, $firebaseArray) {
   $scope.AdviceFactory = AdviceFactory;
-  var ref = new Firebase("https://doordont.firebaseio.com/questions");
+  var ref = new Firebase("https://doordont.firebaseio.com/");
+  $scope.questions = $firebaseArray(ref);
   $scope.newQuestions;
-  ref.on("value", function(snapshot){
-      console.log(snapshot.val());
-      $scope.newQuestions = snapshot.val();
-  })
+
 });
