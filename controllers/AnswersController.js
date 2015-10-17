@@ -6,11 +6,10 @@ DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, Ad
 
   $scope.formShow = false;
   $scope.rating;
-  var questionAnswersRef = new Firebase("https://doordont.firebaseio.com/" + $stateParams.questionId + "/answers");
-  $scope.questionAnswers = $firebaseArray(questionAnswersRef);
-  $scope.questionAnswers.$loaded().then(function() {
 
-  });
+  $scope.questionAnswers = $firebaseArray(ref.child("answers"));
+  console.log($scope.questionAnswers);
+
 
 
   $scope.addAnswer = function() {
@@ -22,20 +21,23 @@ DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, Ad
     };
 
   $scope.addRating = function(id) {
-    var answerRef = new Firebase("https://doordont.firebaseio.com/-K-9xfFrEuqFMR1YuLPj/answers/-K-9xgv5J8sQXb9TFLdb");
-    var answer = $firebaseObject(answerRef);
-    answer.$loaded().then(function() {
+
+    var answer = $firebaseObject(ref.child('answers').child(id));
       console.log(answer);
       answer.approved = true;
       $scope.formShow = true;
-      $scope.submitRating = function(id, rating) {
+      console.log(answer);
+  };
 
-          $scope.formShow = false;
-          answer.rating = rating
-      }
-    });
+    $scope.submitRating = function(id, rating) {
+      var answer = $firebaseObject(ref.child('answers').child(id));
+      console.log(answer);
+      answer.rating = rating;
+      $scope.formShow = false;
+      console.log(answer);
+  };
 
-  }
+
 
 
 });
