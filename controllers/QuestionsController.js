@@ -11,7 +11,10 @@ DoOrDont.controller('QuestionsCtrl', function QuestionsCtrl($scope, AdviceFactor
         answers = snapshot.child('answers').numChildren();
       });
       return answers;
-
   };
+
+  $scope.delete = function(key) {
+    $firebaseObject(ref.child(key)).$remove();
+  }
 
 });

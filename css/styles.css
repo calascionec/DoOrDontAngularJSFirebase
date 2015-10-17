@@ -4,7 +4,13 @@ span {
   font-style: italic;
 }
 
-::selection {
-  color: tomato;
-  background-color: Chartreuse;
+.delete {
+  font-style: none;
+  color: lightblue;
+}
+
+.delete:hover {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
 }

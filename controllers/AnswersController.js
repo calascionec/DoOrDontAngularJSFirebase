@@ -8,8 +8,6 @@ DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, Ad
   $scope.rating;
 
   $scope.questionAnswers = $firebaseArray(ref.child("answers"));
-  console.log($scope.questionAnswers);
-
 
 
   $scope.addAnswer = function() {
@@ -23,18 +21,24 @@ DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, Ad
   $scope.addRating = function(id) {
 
     var answer = $firebaseObject(ref.child('answers').child(id));
-      console.log(answer);
-      answer.approved = true;
-      $scope.formShow = true;
-      console.log(answer);
+    answer.$loaded(
+      function() {
+        answer.approved = true;
+        answer.$save();
+      }
+    )
+    $scope.formShow = true;
   };
 
     $scope.submitRating = function(id, rating) {
       var answer = $firebaseObject(ref.child('answers').child(id));
-      console.log(answer);
-      answer.rating = rating;
+      answer.$loaded(
+        function() {
+          answer.rating = rating;
+          answer.$save();
+        }
+      )
       $scope.formShow = false;
-      console.log(answer);
   };
 
 
