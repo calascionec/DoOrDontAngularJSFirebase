@@ -1,7 +1,7 @@
 DoOrDont.factory('AdviceFactory', function AdviceFactory($firebaseArray){
   var factory = {};
   factory.questions_1 = [];
-  var ref = new Firebase("https://doordont.firebaseio.com/").orderByChild("time");
+  var ref = new Firebase("https://doordont.firebaseio.com/");
   factory.questions = $firebaseArray(ref);
 
   factory.addQuestion = function () {
