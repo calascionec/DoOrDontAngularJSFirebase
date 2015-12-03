@@ -1,5 +1,6 @@
-DoOrDont.controller('QuestionsCtrl', function QuestionsCtrl($scope, AdviceFactory, $firebaseArray, $firebaseObject) {
+DoOrDont.controller('QuestionsCtrl', function QuestionsCtrl($scope, AdviceFactory, $firebaseArray, $firebaseObject, currentAuth) {
   $scope.AdviceFactory = AdviceFactory;
+  $scope.currentAuth = currentAuth;
   var ref = new Firebase("https://doordont.firebaseio.com/");
   $scope.questions = $firebaseArray(ref);
 

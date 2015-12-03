@@ -1,4 +1,4 @@
-<nav>
+<nav ng-controller="LogOutCtrl">
   <div class="nav-wrapper blue-grey darken-2">
 
     <a class="brand-logo blue-grey-text text-lighten-4" ui-sref="home">Do or Don't</a>
@@ -7,6 +7,7 @@
       <li><a href="#">I have a Question!</a></li>
       <li><a href="#">Show me a Random Question</a></li>
       <li><a href="#">About</a></li>
+      <li><a href="#" ng-click="logOut()">Log Out</a></li>
     </ul>
   <div>
 </nav>

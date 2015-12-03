@@ -10,7 +10,7 @@ DoOrDont.run(function($rootScope, $state) {
 
 DoOrDont.config(function($stateProvider, $urlRouterProvider){
   $stateProvider.state("home", {
-    url:"/",
+    url:"",
     views: {
         "body": {
             templateUrl:"partials/home.html",

@@ -11,6 +11,7 @@ DoOrDont.controller("HomeCtrl", function HomeCtrl($scope, Auth){
 
   $scope.showSignIn = function() {
     $scope.signInForm = true;
+    $scope.signUpForm = false;
     $scope.signIn = false;
     $scope.signUp = false;
   };
@@ -24,9 +25,11 @@ DoOrDont.controller("HomeCtrl", function HomeCtrl($scope, Auth){
       password: $scope.password,
     }).then(function(userData) {
       $scope.message = "User created with uid: " + userData.uid;
+      $scope.showSignIn();
     }).catch(function(error) {
       $scope.error = error;
     });
+    $scope.password = "";
   };
 
   $scope.login = function() {
@@ -37,10 +40,9 @@ DoOrDont.controller("HomeCtrl", function HomeCtrl($scope, Auth){
       email: $scope.email,
       password: $scope.password
     }).then(function(authData) {
-      console.log("logged in as: ", authData.id);
-      console.log(authData);
+      console.log("something", authData.uid);
     }).catch(function(error) {
-      console.log("Authentication failed: ", error);
+      alert("Authentication failed: ", error);
     });
   };
 })
