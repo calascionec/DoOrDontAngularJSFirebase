@@ -2,23 +2,34 @@
   <h3>Ask your question!</h3>
   <form ng-submit='AdviceFactory.addQuestion()'  role='form'>
     <div class='form-group'>
-      <input type="text" ng-model="AdviceFactory.question;" class='form-control' placeholder='Enter Your Question Here'>
+      <input type="text" ng-model="AdviceFactory.question;" class='form-control' placeholder='Enter Your Question Here' maxlength="140">
     </div>
     <button type="submit" class="btn btn-primary">Ask!</button>
   </form>
 </div>
 
 <div class="col-md-12" ng-show="questions">
-  <h3>Asked Questions:</h3>
+  <h3>Search Questions:</h3>
   <form class="form-inline" role="form">
     <input ng-model="query" type="text" class="form-control" placeholder="search">
   </form>
   <!-- <ul>
     <li ng-repeat='item in filtered = (questions | filter:query)'><a ui-sref='question({ questionId: item.id})'>{{item.text}}</a><span ng-show="item.answers.length">({{item.answers.length}}) answers</span></li>
   </ul> -->
-  <ul>
-    <li ng-repeat='(key, value) in questions'><a ui-sref='question({ questionId: key})'>{{value.text}}</a><span>({{numAnswers(key)}}) answers</span><span class="delete" ng-click="delete(key)">delete</span></li>
-  </ul>
+  <div class="row">
+    <div class="card medium blue-grey darken-1 col l5 m12 s12" ng-repeat='question in filtered = (questions | orderBy: "-" |filter: query)'>
+      <div class="card-content">
+        <span class="card-title">
+          <a ui-sref='question({ questionId: question.$id})'>{{question.text}}</a>
+        </span>
+      </div>
+      <div class="card-action">
+        <button class="waves-effect waves-light btn-flat blue" ng-click="do(question.$id)"><i class="material-icons no-user-select">thumb_up</i> Do!: {{question.Do}}</button>
+        <button class="waves-effect waves-light btn-flat blue" ng-click="dont(question.$id)"><i class="material-icons no-user-select">thumb_down</i>Don't!: {{question.Dont}}</button><br>
+        <span ng-click="delete(question.$id)" class="delete no-user-select">Delete</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div ui-view></div>

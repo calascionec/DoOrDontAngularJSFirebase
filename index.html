@@ -6,22 +6,27 @@
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
     <script src="app.js"></script>
+    <script src="directives/reverseDirective.js"></script>
     <script src="controllers/QuestionsController.js"></script>
     <script src="controllers/AnswersController.js"></script>
     <script src="controllers/UsersController.js"></script>
+    <script src="controllers/HomeController.js"></script>
     <script src="services/AdviceFactory.js"></script>
     <script src="services/UtilitiesFactory.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/materialize/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <div ui-view="header">
+    <header ui-view="header">
 
-    </div>
-    <div class="container">
+    </header>
+    <main class="container">
       <div ui-view="body">
 
       </div>
-    </div>
+    </main>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="lib/materialize/js/materialize.js"></script>
   </body>
 </html>

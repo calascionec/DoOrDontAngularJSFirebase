@@ -5,7 +5,8 @@ DoOrDont.config(function($stateProvider, $urlRouterProvider){
     url:'',
     views: {
         'body': {
-            templateUrl:'partials/home.html'
+            templateUrl:'partials/home.html',
+            controller:"HomeCtrl"
         }
     }
   });

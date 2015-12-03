@@ -1,8 +1,8 @@
-span {
+/*span {
   margin-left: 5px;
   color: lightgray;
   font-style: italic;
-}
+}*/
 
 .delete {
   font-style: none;
@@ -13,4 +13,16 @@ span {
   text-decoration: underline;
   color: black;
   cursor: pointer;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.card:nth-child(even) {
+  float: right;
+}
+
+.btn-flat {
+  text-align: center;
 }
