@@ -1,4 +1,4 @@
-DoOrDont.controller("HomeCtrl", function HomeCtrl($scope, Auth){
+DoOrDont.controller("HomeCtrl", function HomeCtrl($scope, Auth, $state){
   $scope.signUp = true;
   $scope.signIn = true;
   $scope.signUpForm = false;
@@ -41,6 +41,7 @@ DoOrDont.controller("HomeCtrl", function HomeCtrl($scope, Auth){
       password: $scope.password
     }).then(function(authData) {
       console.log("something", authData.uid);
+      $state.go("questions");
     }).catch(function(error) {
       alert("Authentication failed: ", error);
     });
