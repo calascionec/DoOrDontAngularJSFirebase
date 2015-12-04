@@ -22,7 +22,7 @@
           <a ui-sref='question({ questionId: question.$id})'>{{question.text}}</a>
         </span>
         <p>
-
+          <span ng-show="numAnswers(question.$id)">This question has {{numAnswers(question.$id)}} answers</span>
         </p>
       </div>
       <div class="card-action">
