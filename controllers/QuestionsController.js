@@ -1,9 +1,13 @@
-DoOrDont.controller('QuestionsCtrl', function QuestionsCtrl($scope, AdviceFactory, $firebaseArray, $firebaseObject, currentAuth) {
-  $scope.AdviceFactory = AdviceFactory;
+DoOrDont.controller('QuestionsCtrl', function QuestionsCtrl($scope, QuestionFactory, $firebaseArray, $firebaseObject, currentAuth) {
   $scope.currentAuth = currentAuth;
   var ref = new Firebase("https://doordont.firebaseio.com/");
-  $scope.questions = $firebaseArray(ref);
+  $scope.questions = QuestionFactory;
+  $scope.admin = currentAuth.uid == "79077028-a080-4269-97c5-b875bd5d30c0";
 
+  $scope.addQuestion = function () {
+    var new_question = $scope.questions.$add({ text: $scope.question, Do: 0, Dont: 0, time: new Date().getTime(), user: currentAuth});
+    $scope.question = null;
+  };
 
   $scope.numAnswers = function(key) {
       var answers;

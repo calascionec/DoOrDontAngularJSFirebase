@@ -26,3 +26,8 @@ a:hover {
 .btn-flat {
   text-align: center;
 }
+
+.card.small .card-content, .card.medium .card-content, .card.large .card-content {
+    max-height: 100%;
+    overflow: scroll;
+}

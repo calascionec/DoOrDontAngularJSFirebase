@@ -23,6 +23,9 @@ DoOrDont.controller("HomeCtrl", function HomeCtrl($scope, Auth, $state){
     Auth.$createUser({
       email: $scope.email,
       password: $scope.password,
+      first_name: $scope.first_name,
+      last_name: $scope.last_name
+
     }).then(function(userData) {
       $scope.message = "User created with uid: " + userData.uid;
       $scope.showSignIn();

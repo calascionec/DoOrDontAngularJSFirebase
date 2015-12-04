@@ -52,6 +52,29 @@ DoOrDont.config(function($stateProvider, $urlRouterProvider){
             templateUrl: "partials/question.html",
             controller: "AnswersCtrl"
         }
+    },
+    resolve: {
+      "currentAuth": ["Auth", function(Auth) {
+        return Auth.$requireAuth();
+      }]
+    }
+  });
+
+  $stateProvider.state("my_questions", {
+    url: "questions/my_questions",
+    views: {
+        "header": {
+            templateUrl: "partials/header.html"
+        },
+        "body": {
+            templateUrl: "partials/my_questions.html",
+            controller: "MyQuestionsCtrl"
+        }
+    },
+    resolve: {
+      "currentAuth": ["Auth", function(Auth) {
+        return Auth.$requireAuth();
+      }]
     }
   });
 

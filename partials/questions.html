@@ -1,8 +1,9 @@
 <div class='col-md-12'>
+  <h5>Welcome back {{currentAuth.password.email}}</h5>
   <h3>Ask your question!</h3>
-  <form ng-submit='AdviceFactory.addQuestion()'  role='form'>
+  <form ng-submit='addQuestion()' role='form'>
     <div class='form-group'>
-      <input type="text" ng-model="AdviceFactory.question;" class='form-control' placeholder='Enter Your Question Here' maxlength="140">
+      <input type="text" ng-model="question" class='' placeholder='Enter Your Question Here' maxlength="140">
     </div>
     <button type="submit" class="btn btn-primary">Ask!</button>
   </form>
@@ -13,20 +14,22 @@
   <form class="form-inline" role="form">
     <input ng-model="query" type="text" class="form-control" placeholder="search">
   </form>
-  <!-- <ul>
-    <li ng-repeat='item in filtered = (questions | filter:query)'><a ui-sref='question({ questionId: item.id})'>{{item.text}}</a><span ng-show="item.answers.length">({{item.answers.length}}) answers</span></li>
-  </ul> -->
+
   <div class="row">
     <div class="card medium blue-grey darken-1 col l5 m12 s12" ng-repeat='question in filtered = (questions | orderBy: "-" |filter: query)'>
       <div class="card-content">
         <span class="card-title">
           <a ui-sref='question({ questionId: question.$id})'>{{question.text}}</a>
         </span>
+        <p>
+
+        </p>
       </div>
       <div class="card-action">
         <button class="waves-effect waves-light btn-flat blue" ng-click="do(question.$id)"><i class="material-icons no-user-select">thumb_up</i> Do!: {{question.Do}}</button>
         <button class="waves-effect waves-light btn-flat blue" ng-click="dont(question.$id)"><i class="material-icons no-user-select">thumb_down</i>Don't!: {{question.Dont}}</button><br>
-        <span ng-click="delete(question.$id)" class="delete no-user-select">Delete</span>
+        <span ng-show="admin" ng-click="delete(question.$id)" class="delete no-user-select">Delete</span>
+        <span>asked by : {{question.user.password.email}}</span>
       </div>
     </div>
   </div>

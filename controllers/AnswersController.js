@@ -1,6 +1,6 @@
-DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, AdviceFactory, UtilitiesFactory, $firebaseObject, $firebaseArray){
+DoOrDont.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, QuestionFactory, UtilitiesFactory, $firebaseObject, $firebaseArray){
   // var ref = new Firebase("https://doordont.firebaseio.com/questions");
-  // $scope.question = UtilitiesFactory.findById(AdviceFactory.questions, $stateParams.questionId)
+  // $scope.question = UtilitiesFactory.findById(QuestionFactory.questions, $stateParams.questionId)
   var ref = new Firebase("https://doordont.firebaseio.com/" + $stateParams.questionId);
   $scope.question = $firebaseObject(ref);
 

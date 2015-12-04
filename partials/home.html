@@ -11,11 +11,11 @@
       <form class="col s12" ng-submit="createUser()">
         <div class="row">
           <div class="input-field col s6">
-            <input id="first_name" type="text" class="validate">
+            <input ng-model="first_name" id="first_name" type="text" class="validate" autofocus>
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate">
+            <input ng-model="last_name" id="last_name" type="text" class="validate">
             <label for="last_name">Last Name</label>
           </div>
         </div>
